@@ -33,6 +33,20 @@ T = int(input())
 
 for test_case in range(1, T + 1):
     n10 = float(input())
-    n2 = bin(n10)
+    n2 = ''
+    
+    for _ in range(12):
+        n10 *= 2
+        if n10 >= 1:
+            n2 += '1'
+            n10 -= 1
+        else:
+            n2 += '0'
+        
+        if n10 == 0:
+            break
+    
+    if n10 != 0:
+        n2 = 'overflow'
 
-    print(n2)
+    print(f'#{test_case} {n2}')

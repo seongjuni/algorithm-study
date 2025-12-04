@@ -47,30 +47,17 @@
 #3 5
 
 T = int(input())
-for test_case in range(1, T + 1):
-    sum = 0
-    cnt = 0
-    res = 0
-    
+for test_case in range(1, T + 1):    
     N = int(input())
     arr = list(map(int, input().split(' ')))
     
-    #buy or not
-    for i in range(len(arr)):
-        if i == len(arr) - 1:
-            res += arr[i] * cnt - sum
-            sum = 0
-            cnt = 0
-            break
+    res = 0
+    max_price = 0
 
-        if arr[i] <= arr[i + 1]:
-            sum += arr[i]
-            cnt += 1
-
+    for price in reversed(arr):
+        if price > max_price:
+            max_price = price
         else:
-            res += arr[i] * cnt - sum
-            sum = 0
-            cnt = 0
+            res += max_price - price
     
-    print(f'#{test_case} {res}')        
-            
+    print(f'#{test_case} {res}')

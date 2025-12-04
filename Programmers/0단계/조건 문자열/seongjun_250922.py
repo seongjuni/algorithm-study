@@ -23,6 +23,6 @@ ops = {
 }
 
 def solution(ineq, eq, n, m):
-    return 0 if ops[ineq + eq](n,m) else 1
+    return 1 if ops[ineq + eq](n,m) else 0
 
 print(solution("<","=",20,50))

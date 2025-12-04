@@ -21,19 +21,11 @@
 n = int(input())
 arr = list(map(int, input().split(' ')))
 t, p = map(int, input().split(' '))
-res = 0
 
 p1 = n // p
 p2 = n % p
 
-for i in range(len(arr)):
-    if arr[i] > t:
-        res += arr[i] // t
-    elif arr[i] == 0:
-        continue
-    else:
-        res += 1
+res = sum((i + t - 1) // t for i in arr)
 
 print(res)
-
-
+print(p1, p2)

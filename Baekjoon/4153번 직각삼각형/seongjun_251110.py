@@ -6,11 +6,15 @@
 # 5 12 13
 # 0 0 0
 
-while(1):
-    a, b, c = map(int, input().split(' '))
-    if(a == 0 & b == 0 & c ==0):
+while True:
+    a, b, c = map(int, input().split())
+    
+    if a == 0 and b == 0 and c == 0:
         break
-    if(a**2 + b**2 == c**2):
+
+    a, b, c = sorted([a, b, c])
+
+    if a**2 + b**2 == c**2:
         print("right")
     else:
-        print("wrong")    
+        print("wrong")

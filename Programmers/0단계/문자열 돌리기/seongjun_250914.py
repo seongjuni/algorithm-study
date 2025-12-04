@@ -15,3 +15,5 @@
 str = input()
 for i in range(len(str)):
     print(str[i])
+
+# print(*[x for x in input()], sep='\n')

@@ -60,13 +60,11 @@ for test_case in range(1, T + 1):
     dr = [-1, 1, 0, 0]
     dc = [0, 0, -1, 1]
 
-    # 미로 입력 받기
     room = []
     for _ in range(N):
-        row = list(map(int, input().strip()))  # '13101' → [1,3,1,0,1]
+        row = list(map(int, input().strip()))
         room.append(row)
 
-    # 출발점 찾기 (값이 2인 곳)
     sr = sc = -1
     for r in range(N):
         for c in range(N):
@@ -76,11 +74,9 @@ for test_case in range(1, T + 1):
         if sr != -1:
             break
 
-    # BFS 준비
     q = deque()
-    # visited를 "거리"로 사용, -1은 방문 안 함
     visited = [[-1] * N for _ in range(N)]
-    visited[sr][sc] = 0     # 시작점까지 거리 = 0
+    visited[sr][sc] = 0   
     q.append((sr, sc))
 
     ans = 0
@@ -92,15 +88,12 @@ for test_case in range(1, T + 1):
             nr = r + dr[k]
             nc = c + dc[k]
 
-            # 범위 안 + 벽이 아니고 + 아직 안 가본 곳
             if 0 <= nr < N and 0 <= nc < N:
                 if room[nr][nc] != 1 and visited[nr][nc] == -1:
-                    # 도착지(3)를 찾으면, 현재까지 거리(0의 개수)를 정답으로
                     if room[nr][nc] == 3:
                         ans = visited[r][c]
-                        q.clear()  # 더 볼 필요 없음
+                        q.clear()
                         break
-                    # 통로(0)이면 계속 진행
                     visited[nr][nc] = visited[r][c] + 1
                     q.append((nr, nc))
 

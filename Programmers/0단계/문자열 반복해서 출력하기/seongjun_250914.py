@@ -8,7 +8,6 @@
 # 출력 #1
 # stringstringstringstringstring
 
-
 str, n = input().strip().split(' ')
 n = int(n)
 print(str*n)
